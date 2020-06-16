@@ -8,7 +8,7 @@
 </head>
 <body>
 <font color="red">${errorMessage}</font>
-<form method="POST" action="/index" modelAttribute="message">
+<form method="POST" action="/index">
     Email
     <input type="email" name="email" id="email" required />
     Password

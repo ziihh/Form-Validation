@@ -22,13 +22,12 @@ public class IndexController {
         return "index";
     }
 
-    @RequestMapping( value = "/redirect", method = RequestMethod.GET)
+    @RequestMapping( value = "welcome", method = RequestMethod.GET)
     public String redirectWelcome(){
-        return "redirect:welcome";
+        return "welcome";
     }
 
-    @PostMapping(value = "/index")
-    @ResponseBody
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String createUser(ModelMap model, User user){
         System.out.print(user);
         boolean isValidUser = indexService.insertUser(user);
@@ -38,8 +37,9 @@ public class IndexController {
             return "index";
         }
             model.put("name", user.getEmail());
-        return "welcome";
+        return "redirect:welcome";
     }
+
 
    /* @GetMapping(value = "index", produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
